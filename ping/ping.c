@@ -78,7 +78,7 @@ char *inet_ntoa();
 /*
  * 			M A I N
  */
-main(argc, argv)
+int main(argc, argv)
 char *argv[];
 {
 	struct sockaddr_in from;
@@ -338,7 +338,7 @@ register int t;
  * which arrive ('tis only fair).  This permits multiple copies of this
  * program to be run without having intermingled output (or statistics!).
  */
-pr_pack( buf, cc, from )
+int pr_pack( buf, cc, from )
 char *buf;
 int cc;
 struct sockaddr_in *from;
@@ -359,24 +359,24 @@ struct sockaddr_in *from;
 	if (cc < hlen + ICMP_MINLEN) {
 		if (pingflags & VERBOSE)
 			printf("packet too short (%d bytes) from %s\n", cc,
-				inet_ntoa(ntohl(from->sin_addr))); /* DFM */
-		return;
+				inet_ntoa(ntohl(from->sin_addr.s_addr))); /* DFM */
+		return -1;
 	}
 	cc -= hlen;
 	icp = (struct icmp *)(buf + hlen);
 	if( (!(pingflags & QUIET)) && icp->icmp_type != ICMP_ECHOREPLY )  {
 		printf("%d bytes from %s: icmp_type=%d (%s) icmp_code=%d\n",
-		  cc, inet_ntoa(ntohl(from->sin_addr)),
+		  cc, inet_ntoa(ntohl(from->sin_addr.s_addr)),
 		  icp->icmp_type, pr_type(icp->icmp_type), icp->icmp_code);/*DFM*/
 		if (pingflags & VERBOSE) {
 			for( i=0; i<12; i++)
 				printf("x%2.2x: x%8.8x\n", i*sizeof(long),
 				  *lp++);
 		}
-		return;
+		return -1;
 	}
 	if( icp->icmp_id != ident )
-		return;			/* 'Twas not our ECHO */
+		return -1;			/* 'Twas not our ECHO */
 
 	if (timing) {
 		tp = (struct timeval *)&icp->icmp_data[0];
