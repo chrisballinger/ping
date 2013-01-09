@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D9D37190169D56CF0086F358 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = D9D3718F169D56CF0086F358 /* main.c */; };
+		D9D37190169D56CF0086F358 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = D9D3718F169D56CF0086F358 /* ping.c */; };
 		D9D37192169D56CF0086F358 /* ping.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = D9D37191169D56CF0086F358 /* ping.1 */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,7 @@
 
 /* Begin PBXFileReference section */
 		D9D3718B169D56CF0086F358 /* ping */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ping; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9D3718F169D56CF0086F358 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		D9D3718F169D56CF0086F358 /* ping.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ping.c; sourceTree = "<group>"; };
 		D9D37191169D56CF0086F358 /* ping.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ping.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,7 +60,7 @@
 		D9D3718E169D56CF0086F358 /* ping */ = {
 			isa = PBXGroup;
 			children = (
-				D9D3718F169D56CF0086F358 /* main.c */,
+				D9D3718F169D56CF0086F358 /* ping.c */,
 				D9D37191169D56CF0086F358 /* ping.1 */,
 			);
 			path = ping;
@@ -117,7 +117,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9D37190169D56CF0086F358 /* main.c in Sources */,
+				D9D37190169D56CF0086F358 /* ping.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +210,7 @@
 				D9D37197169D56CF0086F358 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
